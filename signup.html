@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Signup</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    /* Background with light gradient + subtle animation */
+    body {
+      height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Soft moving light overlay */
+    body::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      left: -30%;
+      width: 160%;
+      height: 160%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.25), transparent 70%);
+      animation: moveLight 20s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes moveLight {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(20%, 10%) scale(1.1);
+      }
+
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    /* Signup form container */
+    .signup-container {
+      position: relative;
+      background: white;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      width: 400px;
+      max-width: 90vw;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .signup-container:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Heading */
+    h2 {
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      text-align: center;
+      letter-spacing: 1.3px;
+    }
+
+    /* Labels */
+    label {
+      font-weight: 600;
+      color: #4a4a4a;
+    }
+
+    /* Inputs */
+    input.form-control {
+      border-radius: 12px;
+      border: 1.5px solid #cbd5e1;
+      padding: 12px 15px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input.form-control:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 8px rgba(56, 223, 248, 0.5);
+      outline: none;
+    }
+
+    /* Button */
+    button.btn-success {
+      width: 100%;
+      padding: 12px;
+      font-weight: 700;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      border: none;
+      box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    button.btn-success:hover {
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+      box-shadow: 0 7px 20px rgba(14, 165, 233, 0.6);
+    }
+
+    /* Login Link */
+    p.mt-3 {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    p.mt-3 a {
+      color: #0ea5e9;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    p.mt-3 a:hover {
+      color: #075985;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="signup-container">
+    <h2>Signup</h2>
+    <form method="POST" action="/signup">
+      <div class="mb-3">
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" class="form-control" required />
+      </div>
+      <button type="submit" class="btn btn-success">Signup</button>
+      <p class="mt-3">Already have an account? <a href="/login">Login</a></p>
+    </form>
+  </div>
+</body>
+
+</html>
